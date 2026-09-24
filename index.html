@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKLN Tower Defense</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>MKLN Tower Defense</h1>
+  <div class="stats">
+    <span class="stat gold" id="gold">Gold 150</span>
+    <span class="stat lives" id="lives">Lives 20</span>
+    <span class="stat wave" id="wave">Wave 0 / 20</span>
+  </div>
+</header>
+<main>
+  <div class="game-wrap">
+    <canvas id="game" width="960" height="600"></canvas>
+    <div id="toast"></div>
+    <div id="overlay" class="hidden"></div>
+  </div>
+  <aside class="panel">
+    <h2>Build</h2>
+    <div id="shop"></div>
+    <div id="tower-info" class="hidden"></div>
+    <div class="controls">
+      <button id="wave-btn">Send Wave</button>
+      <button id="speed-btn">Speed 1x</button>
+      <button id="pause-btn">Pause</button>
+    </div>
+    <p class="hint">Keys: 1-4 pick tower, Esc cancel, Space pause. Click a placed tower to upgrade or sell it. Send the next wave early for bonus gold.</p>
+  </aside>
+</main>
+<script src="game.js"></script>
+</body>
+</html>
