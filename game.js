@@ -1351,6 +1351,9 @@ function startGame(mapIdx, diff) {
   }
   renderTowerInfo();
   updateHUD();
+
+  // Enter fullscreen automatically when a game starts (user-gesture context)
+  enterFullscreen();
 }
 
 function toMenu() {
@@ -1382,6 +1385,49 @@ canvas.addEventListener('click', e => {
 });
 
 document.addEventListener('pointerdown', ensureAudio);
+
+// ================= Fullscreen =================
+function enterFullscreen() {
+  const d = document;
+  if (d.fullscreenElement || d.webkitFullscreenElement) return;
+  const root = d.documentElement;
+  if (!root) return;
+  const req = root.requestFullscreen || root.webkitRequestFullscreen;
+  if (req) {
+    try {
+      const p = req.call(root);
+      if (p && p.catch) p.catch(() => {});
+    } catch (e) { /* ignore */ }
+  }
+}
+
+function exitFullscreen() {
+  const d = document;
+  const exit = d.exitFullscreen || d.webkitExitFullscreen;
+  if (exit) {
+    try {
+      const p = exit.call(d);
+      if (p && p.catch) p.catch(() => {});
+    } catch (e) { /* ignore */ }
+  }
+}
+
+function toggleFullscreen() {
+  const d = document;
+  if (d.fullscreenElement || d.webkitFullscreenElement) exitFullscreen();
+  else enterFullscreen();
+}
+
+function updateFsBtn() {
+  const d = document;
+  const isFs = !!(d.fullscreenElement || d.webkitFullscreenElement);
+  const b = el('fs-btn');
+  if (b) b.textContent = isFs ? 'Exit Fullscreen' : 'Fullscreen';
+}
+
+document.addEventListener('fullscreenchange', updateFsBtn);
+document.addEventListener('webkitfullscreenchange', updateFsBtn);
+el('fs-btn').addEventListener('click', toggleFullscreen);
 
 function togglePause() {
   if (state.over || state.screen !== 'playing') return;
@@ -1427,6 +1473,8 @@ document.addEventListener('keydown', e => {
     renderTowerInfo();
   } else if (e.key >= '1' && e.key <= '8') {
     selectBuild(TOWER_ORDER[+e.key - 1]);
+  } else if (e.key === 'f' || e.key === 'F') {
+    toggleFullscreen();
   }
 });
 

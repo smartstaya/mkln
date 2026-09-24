@@ -10,7 +10,7 @@
   --accent: #38bdf8;
 }
 
-html, body { height: 100%; }
+html, body { height: 100%; overflow: hidden; }
 
 body {
   margin: 0;
@@ -22,19 +22,21 @@ body {
   color: var(--text);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 26px;
+  padding: 10px 18px;
   background: rgba(17, 24, 42, .8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  flex: 0 0 auto;
 }
 
 .logo {
@@ -57,20 +59,35 @@ header {
 .stat.wave { color: #93c5fd; }
 .stat.best { color: #a78bfa; }
 
+#fs-btn { flex: 0 0 auto; padding: 8px 14px; font-size: .8rem; }
+
 main {
   display: flex;
-  gap: 16px;
-  padding: 16px;
+  gap: 12px;
+  padding: 10px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: stretch;
   flex-wrap: wrap;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
-.game-wrap { position: relative; }
+.game-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 canvas#game {
   display: block;
   max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 0 0 1px var(--border), 0 12px 40px rgba(0, 0, 0, .55);
@@ -141,6 +158,9 @@ canvas#game {
 /* ---------- Side panel ---------- */
 .panel {
   width: 285px;
+  flex: 0 0 285px;
+  max-height: 100%;
+  overflow-y: auto;
   background: rgba(21, 29, 49, .92);
   border: 1px solid var(--border);
   border-radius: 12px;

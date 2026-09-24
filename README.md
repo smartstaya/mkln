@@ -13,6 +13,7 @@ A deep, browser-based tower defense game. No dependencies, no build step — ope
 - **Economy**: wave interest (3%), gold-generating Mints, early wave bonuses
 - **Game feel**: particles, screen shake, damage numbers, glowing paths, synthesized sound effects
 - **Best-wave tracking** saved locally
+- **Fullscreen**: the game enters fullscreen when you start — toggle anytime with **F** or the header button
 
 ## How to Play
 
