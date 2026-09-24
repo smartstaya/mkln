@@ -3,34 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKLN Tower Defense</title>
+<title>MKLN Tower Defense — Evolution</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <h1>MKLN Tower Defense</h1>
+  <h1 class="logo">MKLN <span>Tower Defense</span></h1>
   <div class="stats">
-    <span class="stat gold" id="gold">Gold 150</span>
+    <span class="stat gold" id="gold">Gold 180</span>
     <span class="stat lives" id="lives">Lives 20</span>
-    <span class="stat wave" id="wave">Wave 0 / 20</span>
+    <span class="stat wave" id="wave">Wave 0 / 30</span>
+    <span class="stat best" id="best">Best 0</span>
   </div>
 </header>
 <main>
   <div class="game-wrap">
     <canvas id="game" width="960" height="600"></canvas>
     <div id="toast"></div>
-    <div id="overlay" class="hidden"></div>
+    <div id="overlay" class="overlay"></div>
   </div>
   <aside class="panel">
     <h2>Build</h2>
-    <div id="shop"></div>
+    <div id="shop" class="shop-grid"></div>
     <div id="tower-info" class="hidden"></div>
     <div class="controls">
       <button id="wave-btn">Send Wave</button>
       <button id="speed-btn">Speed 1x</button>
       <button id="pause-btn">Pause</button>
+      <button id="sound-btn" class="ghost">Sound: On</button>
     </div>
-    <p class="hint">Keys: 1-4 pick tower, Esc cancel, Space pause. Click a placed tower to upgrade or sell it. Send the next wave early for bonus gold.</p>
+    <p class="hint" id="next-wave"></p>
+    <p class="hint">Keys: 1-8 towers · Space pause · Esc cancel. Click towers to upgrade, set targeting and choose an elite spec at Lv.3. Early send = bonus gold · +3% interest per wave.</p>
   </aside>
 </main>
 <script src="game.js"></script>

@@ -1,42 +1,46 @@
-# MKLN Tower Defense
+# MKLN Tower Defense — Evolution
 
-A fast, browser-based tower defense game. No dependencies, no build step — just open `index.html` and play.
+A deep, browser-based tower defense game. No dependencies, no build step — open `index.html` and play.
+
+## What's New in Evolution
+
+- **3 maps** with different enemy routes, plus **Normal / Hard** difficulty
+- **8 towers** including Tesla (chain lightning), Poison (stacking DoT), Beacon (buffs nearby towers) and Mint (generates gold)
+- **Elite specs**: at level 3 every tower chooses one of two powerful specializations (chain stun, railgun, napalm ground fire, contagion poison…)
+- **8 enemy types**: armored tanks, slow-immune wraiths, healers, regenerating ogres and bosses that self-heal
+- **4 targeting modes** per tower: First, Last, Strongest, Closest
+- **30 waves** + endless mode, with wave previews and early-send gold bonuses
+- **Economy**: wave interest (3%), gold-generating Mints, early wave bonuses
+- **Game feel**: particles, screen shake, damage numbers, glowing paths, synthesized sound effects
+- **Best-wave tracking** saved locally
 
 ## How to Play
 
-Enemies march along the path toward your base. Build towers on the grass to stop them before they get through. You start with 150 gold and 20 lives; every enemy that reaches the base costs lives (bosses cost 5).
+Enemies march along the path toward your base. Build towers on the grass to stop them before they get through.
 
-- Survive **20 waves** to win — then keep going in Endless Mode if you dare.
-- Clearing a wave pays a reward, and sending the next wave early pays bonus gold.
+- Click a tower card (or keys **1–8**), then click the map to build
+- Click a placed tower to **upgrade** it, cycle **targeting**, and at Lv.3 choose an **elite spec**
+- Sell towers for 70% back
+- Send the next wave early for bonus gold; leftover gold earns 3% interest each wave
+- Wraiths resist physical damage and ignore slows — use energy towers (Tesla, Poison, Frost)
+- Armored enemies (tank, brute, boss) reduce physical damage — Piercer arrows and Railguns ignore armor
 
 ## Towers
 
-| Tower | Cost | Strength |
-|-------|------|----------|
-| Arrow | 50g | Fast, cheap single-target damage |
-| Cannon | 100g | Splash damage, slow fire |
-| Frost | 75g | Chills and slows enemies |
-| Sniper | 125g | Long range, high damage |
-
-Every tower can be upgraded 3 times (click a placed tower). Sell towers for 70% of what you spent.
-
-## Enemies
-
-- **Grunt** — balanced
-- **Runner** — fast and fragile
-- **Tank** — slow and tanky
-- **Boss** — appears every 5th wave
-
-## Controls
-
-- **Click a tower card (or keys 1–4)**, then click the map to build
-- **Click a placed tower** to upgrade or sell it
-- **Space** — pause/resume
-- **Esc** — cancel selection
+| Tower | Cost | Role |
+|-------|------|------|
+| Arrow | 50g | Fast single-target |
+| Cannon | 110g | Splash damage |
+| Frost | 80g | Slows enemies |
+| Sniper | 140g | Huge long-range hits |
+| Tesla | 130g | Chain lightning |
+| Poison | 90g | Stacking damage over time |
+| Beacon | 120g | +25% damage to nearby towers |
+| Mint | 150g | Generates gold over time |
 
 ## Run It
 
-Just open `index.html` in any modern browser. Or serve it locally:
+Open `index.html` in any modern browser, or serve locally:
 
 ```bash
 python3 -m http.server
@@ -47,4 +51,4 @@ python3 -m http.server
 
 - `index.html` — page and layout
 - `style.css` — UI styling
-- `game.js` — all game logic (canvas rendering, waves, towers, enemies)
+- `game.js` — all game logic and rendering
